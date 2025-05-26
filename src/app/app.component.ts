@@ -30,9 +30,12 @@ export class AppComponent {
     console.log(this.userName);
   }
 
-  onSelectUser(id: string) {
-    this.selectedUserId = id;
-    this.selectedUserItem = DUMMY_USERS.find((user) => user.id === id);
+  get selectUser() {
+    return this.selectedUserItem = DUMMY_USERS.find((user) => user.id === this.selectedUserId);
   }
 
+  onSelectUser(id: string) {
+    this.selectedUserId = id;
+    
+  }
 }
