@@ -31,11 +31,11 @@ export class AppComponent {
   }
 
   get selectUser() {
-    return this.selectedUserItem = DUMMY_USERS.find((user) => user.id === this.selectedUserId);
+    return this.users.find((user) => user.id === this.selectedUserId);
   }
 
   onSelectUser(id: string) {
     this.selectedUserId = id;
-    
   }
+
 }

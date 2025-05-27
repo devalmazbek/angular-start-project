@@ -1,3 +1,20 @@
-<div class="article">
-    <h3>{{name}}</h3>
-</div>
+<section id="tasks">
+    <header>
+        <h2>{{name}}</h2>
+        <menu>
+            <button (click)="onOpenModal()">Add Task</button>
+        </menu>
+    </header>
+    <ul>
+        @for (item of selectedUserTasks; track item.id) {
+            <li>
+                <app-task-item [task]="item" (complete)="onCompleteTask($event)" /> 
+            </li>
+        }
+        
+    </ul>
+
+    @if(isOpenModal) {
+        <app-new-task (close)="onCloseModal()" (create)="onAddTask($event)"/>
+    }
+</section>

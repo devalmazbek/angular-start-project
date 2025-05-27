@@ -1,6 +1,9 @@
 import { Component, signal, computed, Input, input, Output, EventEmitter } from '@angular/core';
 
+import { type User } from './user.model';
+
 import {DUMMY_USERS} from './dummy-users';
+
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 @Component({
@@ -10,9 +13,8 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input() id!: string;
-  @Input({required: true}) avatar!: string;
-  @Input({required: true}) name!: string;
+  @Input() user!: User;
+  @Input({required: true}) selectedUser!: boolean;
   @Output() select = new EventEmitter<string>();
 
   // moder way
@@ -39,11 +41,11 @@ export class UserComponent {
   
 
   get imagePath() {
-    return '/assets/users/' + this.avatar;
+    return '/assets/users/' + this.user.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
   }
 
 }
