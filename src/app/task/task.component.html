@@ -8,13 +8,13 @@
     <ul>
         @for (item of selectedUserTasks; track item.id) {
             <li>
-                <app-task-item [task]="item" (complete)="onCompleteTask($event)" /> 
+                <app-task-item [task]="item"/> 
             </li>
         }
         
     </ul>
 
     @if(isOpenModal) {
-        <app-new-task (close)="onCloseModal()" (create)="onAddTask($event)"/>
+        <app-new-task [userId]="userId" (close)="onCloseModal()" />
     }
 </section>

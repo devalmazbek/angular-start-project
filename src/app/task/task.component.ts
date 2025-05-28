@@ -22,21 +22,11 @@ export class TaskComponent {
     return this.taskService.selectUserTask(this.userId)
   }
 
-  onCompleteTask(id: string) {
-    this.taskService.completeTask(id)
-  }
-
   onOpenModal() {
     this.isOpenModal = true;
   }
 
   onCloseModal() {
     this.isOpenModal = false;
-  }
-
-   onAddTask(taskData: TaskData) {
-    this.taskService.addTask(taskData, this.userId)
-
-    this.onCloseModal();
   }
 }
