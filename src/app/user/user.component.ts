@@ -3,12 +3,13 @@ import { Component, signal, computed, Input, input, Output, EventEmitter } from 
 import { type User } from './user.model';
 
 import {DUMMY_USERS} from './dummy-users';
+import { CardComponent } from '../shared/card/card.component';
 
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
