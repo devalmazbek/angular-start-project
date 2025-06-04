@@ -1,5 +1,4 @@
 import { Component, signal  } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { DUMMY_USERS } from './user/dummy-users';
 
 @Component({
